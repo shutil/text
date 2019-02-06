@@ -13,25 +13,20 @@
     <!---->
     <br>
   <!--Form-->
-  <form>
+  <form method="post" action="{{ url_for('analize') }}">
     <div class="container">
       <h1>Enter text here.....</h1>
       <center>
-      <textarea class="form-control" rows="9" cols="1"></textarea>
+        <textarea class="form-control" rows="9" cols="1" name="query"></textarea>
       <!-- Default switch -->
       </center>
-      
         <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="removepunc">
-          <label class="custom-control-label" for="customSwitch1">Remove puncuation</label>
+          <input type="checkbox" class="custom-control-input" id="removepunc" name="removepunc">
+          <label class="custom-control-label" for="removepunc">Remove puncuation</label>
         </div>
         <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="uppercase">
-          <label class="custom-control-label" for="customSwitch1">UPPERCASE</label>
-        </div>
-        <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="newlineremover">
-          <label class="custom-control-label" for="customSwitch1">New line remover</label>
+          <input type="checkbox" class="custom-control-input" id="uppercase" name="uppercase">
+          <label class="custom-control-label" for="uppercase">UPPERCASE</label>
         </div>
         <br>
         <button type="submit" class="btn btn-success">Analize Text</button>
