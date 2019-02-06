@@ -20,14 +20,12 @@ def analize():
                 if x not in list(punc):
                     word1 += x
             pas = {"q":f"{word1}"}
-            #return render_template('analize.html',pas=pas)
             query = word1
 
         if uppercase == "on":
             word1 =""
             word1 += query.upper()
             pas={"q":f"{word1}"}
-            #return render_template('analize.html',pas=pas)
             query = word1
 
         return render_template('analize.html',pas=pas)
