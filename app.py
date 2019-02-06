@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
 
@@ -12,22 +12,25 @@ def analize():
         query = request.form.get('query')
         removepunc = request.form.get('removepunc')
         uppercase = request.form.get('uppercase')
-        word1=""
+
         if removepunc == "on":
+            word1=""
             punc = '''."'()<>!@#$%^&*~-_;:,'''
             for x in query:
                 if x not in list(punc):
                     word1 += x
             pas = {"q":f"{word1}"}
-            return render_template('analize.html',pas=pas)
+            #return render_template('analize.html',pas=pas)
+            query = word1
 
-        elif uppercase == "on":
+        if uppercase == "on":
+            word1 =""
             word1 += query.upper()
             pas={"q":f"{word1}"}
-            return render_template('analize.html',pas=pas)
+            #return render_template('analize.html',pas=pas)
+            query = word1
 
-        else:
-            return "<h1>Error</h1>"
+        return render_template('analize.html',pas=pas)
 
 if __name__ == "__main__":
     app.run(debug=True)
